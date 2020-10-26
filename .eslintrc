@@ -1,0 +1,64 @@
+{
+  "parser": "babel-eslint",
+  "rules": {
+    "max-len": [1, 120, 2, { "ignoreComments": true }],
+    "indent": [1, 4, { "SwitchCase": 1 }],
+    "arrow-body-style": [
+      "warn",
+      "as-needed",
+      { "requireReturnForObjectLiteral": true }
+    ],
+    "react/jsx-indent": [1, 4],
+    "linebreak-style": 0,
+    "react/jsx-filename-extension": 0,
+    "react/prefer-stateless-function": 0,
+    "react/prop-types": 0,
+    "react/jsx-indent-props": [2, 4],
+    "react/forbid-prop-types": 0,
+    "react/require-default-props": [
+      0,
+      { "forbidDefaultForRequired": false }
+    ],
+    "no-mixed-operators": [
+      "error",
+      {
+        "groups": [
+        ["+", "-", "*", "/", "%", "**"],
+        ["&", "|", "^", "~", "<<", ">>", ">>>"],
+        ["==", "!=", "===", "!==", ">", ">=", "<", "<="],
+        ["&&", "||"],
+        ["in", "instanceof"]
+        ],
+        "allowSamePrecedence": false
+      }
+    ],
+    "object-curly-newline": 0,
+    "import/prefer-default-export": false,
+    "jsx-a11y/anchor-is-valid": "off",
+    "jsx-a11y/anchor-has-content": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "func-names": "off",
+    "no-plusplus": "off",
+    "object-shorthand": "off",
+    "consistent-return": "off",
+    "no-lonely-if": "off",
+    "no-unused-vars": "warn",
+
+    "react-hooks/rules-of-hooks": "warn",
+    "react-hooks/exhaustive-deps": "off"
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "extends": ["airbnb", "prettier", "prettier/react"],
+  "plugins": [
+    // ...
+    "prettier",
+    "react-hooks"
+  ],
+  "globals": {
+    "EXTERNAL_MODULES": false,
+    "IS_GLOBAL": false
+  }
+}
