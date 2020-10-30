@@ -5,8 +5,8 @@ import Chart from './Chart'
 const ChartContainer = () => {
     return (
         <Row justify="center" align="middle" style={{ height: '100%' }}>
-            <Col span={8}>
-                <Card style={{ width: '100%', height: '100%' }}>
+            <Col span={10}>
+                <Card style={{ height: '100%' }}>
                     {/*<Spin spinning={loading}>*/}
                     <Chart />
                     {/*</Spin>*/}

@@ -8,7 +8,7 @@ const baseConfig = require('./webpack.common.js')
 
 module.exports = merge(baseConfig, {
     mode: 'development',
-    devtool: 'cheap-module-source-map',
+    devtool: 'inline-source-map',
     entry: {
         bundle: [
             'react-hot-loader/patch',

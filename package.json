@@ -36,7 +36,9 @@
         "redux-thunk": "^2.3.0",
         "resize-observer-polyfill": "^1.5.1",
         "store": "^2.0.12",
-        "warning": "^4.0.3"
+        "warning": "^4.0.3",
+        "uuid": "^3.2.1",
+        "d3": "^6.2.0"
     },
     "devDependencies": {
         "@babel/core": "^7.2.2",
