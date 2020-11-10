@@ -6,7 +6,9 @@
     "action": {},
     "title": {
         "main": {
-            "dashboard": "MAIN"
+            "dashboard": "MAIN",
+            "2d": "2D",
+            "3d": "3D"
         }
     }
 }

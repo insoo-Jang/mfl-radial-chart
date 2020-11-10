@@ -9,24 +9,24 @@ const Chart = () => {
     const width = 600
     const height = width
     const margin = 10
-    const innerRadius = width / 5
+    const innerRadius = width / 8
     const outerRadius = width / 2 - margin
     const getChart = () => d3.select(`#${uid}`)
 
     let timer
     const xAxisKey = Object.keys(testData.ch_data_map_proc)
     let svg
-    let count = 3500
+    let count = 0
     const jdata = Object.keys(testData.ch_data_map_proc).reduce((acc, keys) => {
         acc.push(testData.ch_data_map_proc[keys].proc[count])
         return acc
     }, [])
     jdata.push(jdata[0])
     const minVal = d3.min(jdata)
-    const maxVal = d3.max(jdata)
+    const maxVal = 1
     const y = d3
         .scaleLinear()
-        .domain([0, maxVal * 2])
+        .domain([0, maxVal])
         .range([innerRadius, outerRadius])
     const x = d3
         .scaleLinear()
@@ -95,13 +95,13 @@ const Chart = () => {
                             'transform',
                             (d, i) =>
                                 `rotate(${(i / xAxisKey.length) * 360 -
-                                    90})translate(${y(maxVal * 2)})`,
+                                    90})translate(${y(maxVal)})`,
                         )
                         .attr('class', 'line-ticks')
                         .call(g =>
                             g
                                 .append('line')
-                                .attr('x2', -1 * (y(maxVal * 2) - innerRadius))
+                                .attr('x2', -1 * (y(maxVal) - innerRadius))
                                 .attr('stroke', '#CCC')
                                 .attr('fill', "'#CCC"),
                         )
@@ -112,12 +112,10 @@ const Chart = () => {
                                 .attr('text-anchor', 'middle')
                                 .attr('transform', (d, i) =>
                                     (i / xAxisKey.length) * 360 < 180
-                                        ? `translate(-${y(maxVal * 2) -
+                                        ? `translate(-${y(maxVal) -
                                               innerRadius +
                                               margin})`
-                                        : `rotate(180)translate(${y(
-                                              maxVal * 2,
-                                          ) -
+                                        : `rotate(180)translate(${y(maxVal) -
                                               innerRadius +
                                               margin})`,
                                 )
@@ -155,7 +153,7 @@ const Chart = () => {
         svg.selectAll('path')
             .data([param])
             .transition()
-            .duration(200)
+            .duration(150)
             .ease(d3.easeLinear)
             .attr('d', line)
     }
@@ -173,7 +171,7 @@ const Chart = () => {
             )
             datum.push(datum[0])
             tick(datum)
-        }, 200)
+        }, 150)
     }
 
     const stop = () => {
